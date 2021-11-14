@@ -13,4 +13,4 @@ How to use it
 6. With the jiggleboneCS selected, go to the inspector and set the Bone name property to the name of the bone you want to turn into a jiggleboneCS. E.g. if you have a bone named "Chin", then it would look like this:
 
 7. That's all! Enjoy your jiggling! If you want more jiggleboneCSes, just repeat step 4-6 again and enter another bone name.
-8. Optionally, for further control, you can tune the parameters, see below.
+8. Optionally, for further control, you can tune the parameters.
