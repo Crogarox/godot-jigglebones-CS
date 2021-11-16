@@ -14,3 +14,4 @@ How to use it
 
 7. That's all! Enjoy your jiggling! If you want more jiggleboneCSes, just repeat step 4-6 again and enter another bone name.
 8. Optionally, for further control, you can tune the parameters, see below.
+9. Remember to compile the script with the mono/msbuild option "Build Solution" otherwise you will get an error.
