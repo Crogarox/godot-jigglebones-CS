@@ -3,7 +3,7 @@ using Godot;
 using System;
 
 [Tool]
-public class custom_node_cs : EditorPlugin
+public class custom_jiggle_bone_node_cs : EditorPlugin
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -12,7 +12,7 @@ public class custom_node_cs : EditorPlugin
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+
     }
 
     public override void _EnterTree()

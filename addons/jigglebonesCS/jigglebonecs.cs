@@ -14,6 +14,8 @@ public class jigglebonecs : Spatial
     [Export] public float damping = 0;
     [Export] bool use_gravity = false;
     [Export] public Vector3 gravity = new Vector3(0, -9.81f, 0);
+    [Export] public bool active = true;
+    [Export] public bool top_item = false;
     [Export] public Axis forward_axis = Axis.Z_Minus;
     [Export] public NodePath findSkeleton;
     public Skeleton skeleton;
@@ -55,6 +57,12 @@ public class jigglebonecs : Spatial
     }
     public override void _Process(float delta)
     {
+        if (GlobalTransform.origin[0] != GlobalTransform.origin[0] || prev_pos[0] != prev_pos[0])
+        {
+            GlobalTransform = new Transform();
+            prev_pos = GlobalTransform.origin;
+        }
+
         if (!(skeleton is Skeleton))
         {
             Jiggleprint("Jigglebone must be a direct child of a Skeleton node");
@@ -75,9 +83,15 @@ public class jigglebonecs : Spatial
         }
         else if (bone_id == 0)
         {
-            Jiggleprint("0 place error bone " + bone_name + " reads it as negative 1");
+            //Jiggleprint("0 place error bone " + bone_name + " reads it as negative 1");
             return;
         }
+        if (top_item)
+        {
+            skeleton.ClearBonesGlobalPoseOverride();
+        }
+            
+
         int bone_id_parent = skeleton.GetBoneParent(bone_id);
 
         //Note:
@@ -153,7 +167,7 @@ public class jigglebonecs : Spatial
         //if (bone_new_transf_obj[0][0] != null)        {            bone_new_transf_obj = new Transform();        }  // # Corrupted somehow
         if (( bone_new_transf_obj[0][0] != bone_new_transf_obj[0][0])) { bone_new_transf_obj = new Transform(); }
 
-        skeleton.SetBoneGlobalPoseOverride(bone_id, bone_new_transf_obj, 0.5f, true);
+        skeleton.SetBoneGlobalPoseOverride(bone_id, bone_new_transf_obj, 0.5f, active);
         // Orient this object to the jigglebone
         origintemp = GlobalTransform;
         origintemp.basis = (skeleton.GlobalTransform * skeleton.GetBoneGlobalPose(bone_id)).basis;
