@@ -1,6 +1,6 @@
 # godot-jigglebones-CS
-An addon that brings jigglebones to Godot Engine 3.0. Redone in C# for Godot Mono Version.
-
+An addon that brings jigglebones to Godot Engine 3.4. Redone in C# for Godot Mono Version.
+The original GDscript version. https://github.com/Bauxitedev/godot-jigglebones
 
 How to use it
 1. Download the repository as zip and extract it.
